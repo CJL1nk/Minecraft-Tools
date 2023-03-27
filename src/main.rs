@@ -1,5 +1,7 @@
+mod command;
 use std::io::{stdin,stdout,Write};
 use rand::Rng;
+use command::*;
 
 fn to_stack() {
 
@@ -26,6 +28,26 @@ fn generate_seed() {
     println!("\n Lucky Seed: {seed}");
 }
 
+fn command_generator() {
+
+    let mut input = String::new();
+
+    println!("\n[1] Effect command");
+    print!("\n>> ");
+
+    let _ = stdout().flush();
+    stdin().read_line(&mut input)
+        .expect("Did not enter a string.");
+    let menu_choice: i32 = input.trim().parse()
+        .expect("Please enter a number");
+
+    match menu_choice {
+
+        1 => command::effect(),
+        _ => effect(),
+    }
+}
+
 fn main() {
 
     println!("Enter an option below:");
@@ -36,7 +58,8 @@ fn main() {
 
         println!("\n\n[1] Blocks to Stacks Converter");
         println!("[2] Lucky Seed Generator");
-        println!("[3] Nothing yet lol");
+        println!("[3] Command Generator");
+        println!("[4] Nothing yet lol");
 
         print!("\n>> ");
 
@@ -50,6 +73,7 @@ fn main() {
 
             1 => to_stack(),
             2 => generate_seed(),
+            3 => command_generator(),
             _ => println!("Invalid Choice")
         }
     }
