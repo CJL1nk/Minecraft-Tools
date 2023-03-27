@@ -1,4 +1,5 @@
 use std::io::{stdin,stdout,Write};
+use rand::Rng;
 
 fn to_stack() {
 
@@ -18,6 +19,13 @@ fn to_stack() {
     println!("{stacks} Stacks and {leftover_blocks} Blocks");
 }
 
+fn generate_seed() {
+
+    let seed: i128 = rand::thread_rng().gen_range(-9223372036854775808..9223372036854775808);
+
+    println!("\n Lucky Seed: {seed}");
+}
+
 fn main() {
 
     println!("Enter an option below:");
@@ -27,7 +35,8 @@ fn main() {
         let mut input = String::new();
 
         println!("\n\n[1] Blocks to Stacks Converter");
-        println!("[2] Nothing yet lol");
+        println!("[2] Lucky Seed Generator");
+        println!("[3] Nothing yet lol");
 
         print!("\n>> ");
 
@@ -40,6 +49,7 @@ fn main() {
         match menu_choice {
 
             1 => to_stack(),
+            2 => generate_seed(),
             _ => println!("Invalid Choice")
         }
     }
