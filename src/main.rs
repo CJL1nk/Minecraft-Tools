@@ -7,7 +7,7 @@ fn to_stack() {
 
     let mut input = String::new();
 
-    print!("\nEnter the amount of blocks you have: ");
+    print!("\n Enter the amount of blocks you have: ");
 
     let _ = stdout().flush();
     stdin().read_line(&mut input)
@@ -18,7 +18,7 @@ fn to_stack() {
     let stacks = blocks / 64;
     let leftover_blocks = blocks % 64;
 
-    println!("{stacks} Stacks and {leftover_blocks} Blocks");
+    println!(" {stacks} Stacks and {leftover_blocks} Blocks");
 }
 
 fn generate_seed() {
@@ -32,7 +32,7 @@ fn command_generator() {
 
     let mut input = String::new();
 
-    println!("\n[1] Effect command");
+    println!("\n [1] Effect command");
     print!("\n>> ");
 
     let _ = stdout().flush();
@@ -50,18 +50,18 @@ fn command_generator() {
 
 fn main() {
 
-    println!("Enter an option below:");
+    println!(" Enter an option below:");
 
     loop {
 
         let mut input = String::new();
 
-        println!("\n\n[1] Blocks to Stacks Converter");
-        println!("[2] Lucky Seed Generator");
-        println!("[3] Command Generator");
-        println!("[4] Nothing yet lol");
+        println!("\n\n [1] Blocks to Stacks Converter");
+        println!(" [2] Lucky Seed Generator");
+        println!(" [3] Command Generator");
+        println!(" [4] Nothing yet lol");
 
-        print!("\n>> ");
+        print!("\n >> ");
 
         let _ = stdout().flush();
         stdin().read_line(&mut input)
@@ -74,7 +74,7 @@ fn main() {
             1 => to_stack(),
             2 => generate_seed(),
             3 => command_generator(),
-            _ => println!("Invalid Choice")
+            _ => println!(" Invalid Choice")
         }
     }
 
