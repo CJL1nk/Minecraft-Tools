@@ -86,7 +86,7 @@ pub fn effect() {
 
    print!("\n Hide particles? (y/n): ");
    let _ = stdout().flush();
-   let b1 = std::io::stdin().read_line(&mut par_input).unwrap();
+   let _b1 = std::io::stdin().read_line(&mut par_input).unwrap();
 
    match par_input.as_str().trim() {
 
