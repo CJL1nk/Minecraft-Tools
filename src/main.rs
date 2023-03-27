@@ -1,7 +1,7 @@
+#![allow(nonstandard_style)]
 mod command;
 use std::io::{stdin,stdout,Write};
 use rand::Rng;
-use command::*;
 
 fn to_stack() {
 
@@ -44,7 +44,7 @@ fn command_generator() {
     match menu_choice {
 
         1 => command::effect(),
-        _ => effect(),
+        _ => command::effect(),
     }
 }
 
