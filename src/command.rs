@@ -58,7 +58,7 @@ pub fn effect() {
    let mut secs: i32 = secs_input.trim().parse()
        .expect("Please enter a number");
 
-   if secs <= 0 { 
+   if secs <= 0 {
 
       secs = 60;
    } else if secs > 1000000 {
@@ -75,7 +75,7 @@ pub fn effect() {
    let mut amp: i32 = amp_input.trim().parse()
        .expect("Please enter a number");
 
-   if amp <= 1 { 
+   if amp <= 1 {
 
       amp = 2;
    } else if amp > 255 {
@@ -136,3 +136,151 @@ pub fn effect() {
    }
 
 }
+
+
+pub fn tellraw() {
+
+   let mut text = String::new();
+   let mut color = String::new();
+   let mut modifier1 = String::new();
+   let mut modifier2 = String::new();
+   let mut modifier3 = String::new();
+   let mut modifier4 = String::new();
+   let mut modifier5 = String::new();
+
+   print!("\n Enter the text you want to display: ");
+   let _ = stdout().flush();
+   let _b1 = std::io::stdin().read_line(&mut text).unwrap();
+
+   text = String::from(text.trim());
+
+   println!("\n Select a color: ");
+   println!("[0] White");
+   println!("[1] Black");
+   println!("[2] Dark Blue");
+   println!("[3] Dark Green");
+   println!("[4] Dark Aqua");
+   println!("[5] Dark Red");
+   println!("[6] Dark Purple");
+   println!("[7] Gold");
+   println!("[8] Gray");
+   println!("[9] Dark Gray");
+   println!("[10] Blue");
+   println!("[11] Green");
+   println!("[12] Aqua");
+   println!("[13] Red");
+   println!("[14] Light Purple");
+   println!("[15] Yellow");
+
+   print!("\n >> ");
+
+   let _ = stdout().flush();
+   stdin().read_line(&mut color)
+       .expect("Did not enter a string.");
+   let color_num: i32 = color.trim().parse()
+       .expect("Please enter a number");
+
+   match color_num {
+
+      0 => color = String::from(""),
+      1 => color = String::from(",\"color\":\"black\""),
+      2 => color = String::from(",\"color\":\"dark_blue\""),
+      3 => color = String::from(",\"color\":\"dark_green\""),
+      4 => color = String::from(",\"color\":\"dark_aqua\""),
+      5 => color = String::from(",\"color\":\"dark_red\""),
+      6 => color = String::from(",\"color\":\"dark_purple\""),
+      7 => color = String::from(",\"color\":\"gold\""),
+      8 => color = String::from(",\"color\":\"gray\""),
+      9 => color = String::from(",\"color\":\"dark_gray\""),
+      10 => color = String::from(",\"color\":\"blue\""),
+      11 => color = String::from(",\"color\":\"green\""),
+      12 => color = String::from(",\"color\":\"aqua\""),
+      13 => color = String::from(",\"color\":\"red\""),
+      14 => color = String::from(",\"color\":\"light_purple\""),
+      15 => color = String::from(",\"color\":\"yellow\""),
+      _ => color = String::from("")
+   }
+
+   loop {
+
+      let mut modifier_input = String::new();
+
+      println!("\n Add Modifiers");
+      println!(" [1] Bold");
+      println!(" [2] Italic");
+      println!(" [3] Underline");
+      println!(" [4] Strike Through");
+      println!(" [5] Obfuscated");
+      println!(" [0] Done");
+
+      print!("\n >> ");
+
+      let _ = stdout().flush();
+      stdin().read_line(&mut modifier_input)
+         .expect("Did not enter a string.");
+      let input_num: i32 = modifier_input.trim().parse()
+         .expect("Please enter a number");
+
+      match input_num {
+
+         1 => modifier1 = String::from(",\"bold\":true"),
+         2 => modifier2 = String::from(",\"italic\":true"),
+         3 => modifier3 = String::from(",\"underlined\":true"),
+         4 => modifier4 = String::from(",\"strikethrough\":true"),
+         5 => modifier5 = String::from(",\"obfuscated\":true"),
+         _ => break
+      }
+   }
+
+   println!("\n /tellraw @a {{\"text\":\"{text}\"{modifier1}{modifier2}{modifier3}{modifier4}{modifier5}{color}}}");
+
+
+}
+
+// UNFINISHED
+pub fn fill() {
+
+   let mut volume = -1;
+
+   while volume > 32769 || volume <= 0 {
+
+      let mut x1_input = String::new();
+      let mut y1_input = String::new();
+      let mut z1_input = String::new();
+
+      print!("\n Enter x: ");
+
+      let _ = stdout().flush();
+      stdin().read_line(&mut x1_input)
+         .expect("Did not enter a string.");
+      let x1_coord: i32 = x1_input.trim().parse()
+         .expect("Please enter a number");
+
+      print!("\n Enter y: ");
+
+      let _ = stdout().flush();
+      stdin().read_line(&mut y1_input)
+         .expect("Did not enter a string.");
+      let y1_coord: i32 = y1_input.trim().parse()
+         .expect("Please enter a number");
+
+      print!("\n Enter z: ");
+
+      let _ = stdout().flush();
+      stdin().read_line(&mut z1_input)
+         .expect("Did not enter a string.");
+      let z1_coord: i32 = z1_input.trim().parse()
+         .expect("Please enter a number");
+
+      volume = (x1_coord + 1) * (y1_coord + 1) * (z1_coord + 1);
+
+      if volume > 32768 {
+
+         println!("Error: Maximum volume cannot exceed 32768, {} specified", volume);
+      }
+   }
+
+
+}
+
+

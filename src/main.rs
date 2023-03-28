@@ -32,7 +32,10 @@ fn command_generator() {
 
     let mut input = String::new();
 
-    println!("\n [1] Effect command");
+    println!("\n [1] Effect");
+    println!(" [2] Tellraw");
+    println!(" [3] Fill (Maybe coming soon?)");
+
     print!("\n>> ");
 
     let _ = stdout().flush();
@@ -44,7 +47,8 @@ fn command_generator() {
     match menu_choice {
 
         1 => command::effect(),
-        _ => command::effect(),
+        2 => command::tellraw(),
+        _ => command::effect()
     }
 }
 
