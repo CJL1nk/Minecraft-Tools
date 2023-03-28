@@ -155,22 +155,22 @@ pub fn tellraw() {
    text = String::from(text.trim());
 
    println!("\n Select a color: ");
-   println!("[0] White");
-   println!("[1] Black");
-   println!("[2] Dark Blue");
-   println!("[3] Dark Green");
-   println!("[4] Dark Aqua");
-   println!("[5] Dark Red");
-   println!("[6] Dark Purple");
-   println!("[7] Gold");
-   println!("[8] Gray");
-   println!("[9] Dark Gray");
-   println!("[10] Blue");
-   println!("[11] Green");
-   println!("[12] Aqua");
-   println!("[13] Red");
-   println!("[14] Light Purple");
-   println!("[15] Yellow");
+   println!(" [0] White");
+   println!(" [1] Black");
+   println!(" [2] Dark Blue");
+   println!(" [3] Dark Green");
+   println!(" [4] Dark Aqua");
+   println!(" [5] Dark Red");
+   println!(" [6] Dark Purple");
+   println!(" [7] Gold");
+   println!(" [8] Gray");
+   println!(" [9] Dark Gray");
+   println!(" [10] Blue");
+   println!(" [11] Green");
+   println!(" [12] Aqua");
+   println!(" [13] Red");
+   println!(" [14] Light Purple");
+   println!(" [15] Yellow");
 
    print!("\n >> ");
 
